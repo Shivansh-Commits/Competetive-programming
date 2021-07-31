@@ -1,0 +1,30 @@
+//https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+
+class Solution {
+public:
+    vector<bool> kidsWithCandies(vector<int>& candy, int ext) {
+        
+        int flag=1,temp=0;
+        vector<bool> res;
+        for(int i=0;i<candy.size();i++)
+        {
+            for(int j=0;j<candy.size();j++)
+            {
+                if((candy[i]+ext)>=candy[j])
+                    continue;
+                else
+                {
+                    flag=0;
+                    break;
+                }
+            }
+            if(flag==1)
+                res.push_back(true);
+            else
+                res.push_back(false); 
+            flag=1;
+        }
+        
+        return res;
+    }
+};
